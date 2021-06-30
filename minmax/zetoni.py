@@ -11,8 +11,7 @@ class Game:
 		self.initialize_game()
 		
 	def initialize_game(self):
-#		self.current_state = [random.randint(-100,100), random.randint(-100,100), random.randint(-100,100), random.randint(-100,100), random.randint(-100,100), random.randint(-100,100), random.randint(-100,100), random.randint(-100,100)]
-		self.current_state = [-59, 34, 40, 42, -27, -34, 50, -89]
+		self.current_state = [random.randint(-100,100), random.randint(-100,100), random.randint(-100,100), random.randint(-100,100), random.randint(-100,100), random.randint(-100,100), random.randint(-100,100), random.randint(-100,100)]
 		self.current_state_holder = [0, 0, 0, 0, 0, 0, 0, 0] #za evaluaciju, ko drzi zeton u ovoj mogucnosti
 		self.zetoni_player = 4
 		self.zetoni_computer = 4
