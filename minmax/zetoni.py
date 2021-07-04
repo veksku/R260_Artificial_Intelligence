@@ -57,6 +57,7 @@ class Game:
 		return next_states
 	
 	def Max(self, stanje, alpha, beta):
+		#######################################################
 		state_value = self.evaluation(stanje)
 		if state_value != None:
 			return (state_value, None)
@@ -72,23 +73,26 @@ class Game:
 			if v > alpha:
 				alpha = v
 		return (v, max_i)
+		#######################################################
 	
 	def Min(self, stanje, alpha, beta):
+		#######################################################
 		state_value = self.evaluation(stanje)
 		if state_value != None:
 			return (state_value, None)
 		v = float('inf')
-		min_i = None
+		max_i = None
 		for (i, next_state) in self.get_next_states(stanje, 1):
 			(value, max_i) = self.Max(next_state, alpha, beta)
-			if v > value:
+			if v < value:
 				v = value
-				min_i = i
+				max_i = i
 			if v <= alpha:
-				return (v, i)
+				return (v,i)
 			if v < beta:
 				beta = v
-		return (v, min_i)
+		return (v, max_i)
+		#######################################################
 		
 	def play(self):
 		self.draw_game_state()
@@ -106,6 +110,7 @@ class Game:
 			return
 		
 		if self.player_turn == 1:
+			#######################################################
 			polje = int(input("Unesite polje na koje stavljate zeton: "))
 			self.current_state_holder[polje] = 1
 			self.player_total += self.current_state[polje]
@@ -113,7 +118,9 @@ class Game:
 			self.zetoni_player -= 1
 			self.player_turn = 2
 			self.play()
+			#######################################################
 		else:
+			#######################################################
 			(v, polje) = self.Max(self.current_state_holder, float('-inf'), float('inf'))
 			self.current_state_holder[polje] = 2
 			self.computer_total += self.current_state[polje]
@@ -121,7 +128,8 @@ class Game:
 			self.zetoni_computer -= 1
 			self.player_turn = 1
 			self.play()
-	
+			#######################################################
+
 	def draw_game_state(self):
 		print("_________________________________")
 		print("Broj zetona koje ima protivnik: {}".format(self.zetoni_computer))
