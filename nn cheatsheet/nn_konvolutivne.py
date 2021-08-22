@@ -31,9 +31,9 @@ test_images = test_images / 255.0
 model = keras.Sequential([
     keras.layers.Conv2D(32, (3,3), activation='relu', input_shape = (IMG_HEIGHT, IMG_WIDTH)),
     keras.layers.MaxPooling2D(2,2),
-    keras.layers.Conv2D(32, (3,3), activation='relu', input_shape = (IMG_HEIGHT, IMG_WIDTH)),
+    keras.layers.Conv2D(32, (3,3), activation='relu'),
     keras.layers.MaxPooling2D(2,2),
-    keras.layers.Conv2D(32, (3,3), activation='relu', input_shape = (IMG_HEIGHT, IMG_WIDTH)),
+    keras.layers.Conv2D(32, (3,3), activation='relu'),
     keras.layers.Flatten(),
     keras.layers.Dropout(0.1),
     keras.layers.Dense(1024, activation='relu'),
