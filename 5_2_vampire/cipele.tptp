@@ -1,0 +1,9 @@
+% Ako postoji cipela koja u svakom trenutku odgovara svakoj nozi, onda za
+% svaku nogu postoji cipela koja joj u nekom trenutku odgovara i za svaku nogu postoji
+% trenutak takav da postoji cipela koja joj u tom trenutku odgovara.
+
+% p(X,Y,Z) - nogi X odgovara cipela Y u trenutku Z
+
+fof(a1, axiom, ?[Y]:(![Z,X]:(p(X,Y,Z)))).
+
+fof(c1, conjecture, (![X]:(?[Y,Z]:(p(X,Y,Z)))) & (![X]:(?[Z,Y]:(p(X,Y,Z))))).
