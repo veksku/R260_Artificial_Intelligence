@@ -45,12 +45,11 @@ model.compile(optimizer='adam',
 
 #Obucavanje, br paketa 64, epoha 20, obucavanje:validacija=4:1, kao.. koristiti validation_split
 #alternativa: train_images_history, val_images_history = model_selection.train_test_split(train_images, test_size=0.20)
-train_images_history = train_images.sample(frac=0.80, random_state=0)
-val_images_history = train_images.drop(train_images_history.index)
 
-history = model.fit(
-    train_images_history, epochs=20, batch_size=64, validation_data = val_images_history
-)
+#dodatno definisi earlystopping, vezbe radi
+early_stop + keras.callbacks.EarlyStopping(monitor='accuracy', patience=10)
+
+history = model.fit(train_images_history, epochs=20, batch_size=64, validation_data = val_images_history, validation_split = 0.2, callbacks=[early_stop])
 
 #Nacrtati kako se menjala tacnost kroz epohe nad podacima za obucavanje i validaciju
 plt.plot(history.history['accuracy'], label='accuracy')
