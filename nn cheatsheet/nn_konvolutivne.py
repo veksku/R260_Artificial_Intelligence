@@ -4,8 +4,6 @@
 train_images = dataset.sample(frac=0.80, random_state=0)
 test_images = dataset.drop(dataset_train.index)
 
-train_images_label = train_images
-test_images_label = test_images
 #Poslednja slika u skupu obucavanja i prikazati labelu
 plt.xticks([])
 plt.yticks([])
