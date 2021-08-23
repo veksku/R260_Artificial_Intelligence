@@ -2,7 +2,7 @@
 
 #Podela u razmeri 4:1
 train_images = dataset.sample(frac=0.80, random_state=0)
-test_images = dataset.drop(dataset_train.index)
+test_images = dataset.drop(train_images.index)
 
 #Poslednja slika u skupu obucavanja i prikazati labelu
 plt.xticks([])
