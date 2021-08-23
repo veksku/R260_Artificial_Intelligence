@@ -40,6 +40,19 @@ def selection(population, size):
 	return bestIndex
 	#=========================
 	
+#ruletska selekcija
+#=========================
+#def roulette(population)
+#	total_fitness = sum([x.fitness for x in population])
+#	random = random.random()
+#	current_sum = 0
+#	for i in range(population.size()):
+#		current_sum += population[i].fitness
+#		if current_sum > random:
+#			return population[i]
+#=========================
+	
+	
 def crossover(parent1, parent2, target):
 	#=========================
 	child1 = Individual(len(target), target)
@@ -73,7 +86,6 @@ newPopulation = [Individual(10, target) for i in range(POPULATION_SIZE)]
 for i in range(MAX_ITER):
 	#=========================
 	population.sort()
-	print("Trenutni najbolji:", population[0].code)
 	if population[0].fitness == 0:
 		break
 	newPopulation[:ELITISM_SIZE] = population[:ELITISM_SIZE]
