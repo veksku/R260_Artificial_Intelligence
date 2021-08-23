@@ -31,10 +31,8 @@ model = keras.Sequential([
 ])
 #softmax = klasifikacija, sigmoid = regresija
 
-print(train_labels.shape)
 train_labels_cat = keras.utils.to_categorical(train_labels)
 test_labels_cat = keras.utils.to_categorical(test_labels)
-print(train_labels_cat.shape)
 
 model.compile(optimizer='adam',
 							loss=tf.keras.losses.CategoricalCrossentropy(),
