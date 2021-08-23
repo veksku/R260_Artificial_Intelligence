@@ -49,7 +49,7 @@ model.compile(optimizer='adam',
 #dodatno definisi earlystopping, vezbe radi
 early_stop = keras.callbacks.EarlyStopping(monitor='accuracy', patience=10)
 
-history = model.fit(train_images_history, epochs=20, batch_size=64, validation_data = train_images, validation_split = 0.2, callbacks=[early_stop])
+history = model.fit(train_images, epochs=20, batch_size=64, validation_split = 0.2, callbacks=[early_stop])
 
 #Nacrtati kako se menjala tacnost kroz epohe nad podacima za obucavanje i validaciju
 plt.plot(history.history['accuracy'], label='accuracy')
