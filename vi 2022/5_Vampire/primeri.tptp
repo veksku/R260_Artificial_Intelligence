@@ -29,3 +29,12 @@ fof(c1, conjecture, ![X,Y]:(m(X,Y) => r(X,Y))).
 	
 % ============================================================================
 
+% Kako radi Vampir:
+
+% Refutation found = Vampir uspeo da dokaze da iz datog skupa aksioma sledi konjektura
+% Vampir je ovo dokazao tako sto je pokazao da negirana konjektura ~c1 nije tacna tj.
+% dati skup formula a1,a2,a3,~c1 nije zadovoljiv
+
+% Satisfiable = Vampir uspeo da dokaze da iz datog skupa aksioma ne sledi konjektura
+% Vampir je ovo dokazao tako sto je pokazao da negirana konjektura ~c1 tacna tj.
+% dati skup formula a1,a2,a3,~c1 je zadovoljiv
