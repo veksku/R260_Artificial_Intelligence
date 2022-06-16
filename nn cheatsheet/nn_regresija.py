@@ -34,6 +34,6 @@ history = model.fit(train_dataset, y_train, epochs=10, batch_size=32, validation
 
 #Nacrtati zavisnost tacnosti od epohe i legendu
 plt.plot(history.history['accuracy'], label = 'accuracy')
-plt.plot(history.history['val_accuracy'], label = 'val_accuracy')
+plt.plot(history.history['test_accuracy'], label = 'test_accuracy')
 plt.ylim([0.5, 1])
 plt.legend(['acc', 'test_acc'])
