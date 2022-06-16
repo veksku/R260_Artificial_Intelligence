@@ -14,9 +14,9 @@ y_input = dataset[['class']]
 y_input['class'] = y_input['class'].map({'acc': 0, 'good': 1, 'unacc': 2, 'vgood': 3})
 y = keras.utils.to_categorical(y_input, 4)
 
-#Podeliti podatke na skup za obucavanje i validaciju u razmeri 3:1.
-train_dataset, val_dataset = model_selection.train_test_split(train_dataset, test_size = 0.25)
-y_train, y_val = model_selection.train_test_split(y, test_size = 0.25)
+#Podeliti podatke na skup za obucavanje/trening i validaciju/test u razmeri 3:1.
+train_dataset, test_dataset = model_selection.train_test_split(train_dataset, test_size = 0.25)
+y_train, y_test = model_selection.train_test_split(y, test_size = 0.25)
 
 #Napraviti potpuno povezano neuronsku mrezu koja ima jedan skriveni sloj sa 32 neurona.
 model = keras.Sequential([
@@ -30,10 +30,10 @@ model.compile(
     optimizer='adam',
     metrics=['accuracy'])
 
-history = model.fit(train_dataset, y_train, epochs=10, batch_size=32, validation_data=(val_dataset, y_val), shuffle=True)
+history = model.fit(train_dataset, y_train, epochs=10, batch_size=32, validation_data=(test_dataset, y_test), shuffle=True)
 
 #Nacrtati zavisnost tacnosti od epohe i legendu
 plt.plot(history.history['accuracy'], label = 'accuracy')
 plt.plot(history.history['val_accuracy'], label = 'val_accuracy')
 plt.ylim([0.5, 1])
-plt.legend(['acc', 'val_acc'])
+plt.legend(['acc', 'test_acc'])
